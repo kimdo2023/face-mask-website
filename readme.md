@@ -15,20 +15,22 @@ I created this project because I wanted to address the problem with people not f
 Another reason why I created this project is because like most college students, we want to be able to attend in-person classes as soon as possible and the only way we can go back to our college campuses is for the number of COVID cases to die down. Therefore, I felt that like a project like this can simulate technology that can benefit those who are trying to prevent the virus from spreading as much as possible.
 
 ## Project Features
-* Python
-* Microsoft Azure Functions
-* Deep Learning
-* Machine Learning
-* Google Collaborate
-* Front-End
-  * HTML
-  * CSS
-  * Javascript
-  * JQuery
-  * Bootstrap
-* OpenCV
-* Tensorflow API
-  *  Keras
+* **Python:** A programming language that can be used, for example, back-end and software development.
+* **Microsoft Azure Functions:** Helps you launch serverless applications.
+* **Face and Object Recognition/Detection**
+  * **Artificial Intelligence**
+  * **Machine Learning**
+  * **Deep Learning**
+* **Google Collaborate**
+* **Front-End-Development**
+  * **HTML**
+  * **CSS**
+  * **Javascript**
+  * **JQuery**
+  * **Bootstrap**
+* **OpenCV:** A library of programming functions mainly aimed at real-time computer vision. 
+* **Tensorflow API:** A free and open-source software library for machine learning. 
+  *  **Keras:** An open-source software library that provides a Python interface for artificial neural networks.
 
 ## Diagram of Project
 ![Diagram](/blog/diagram.png)
@@ -57,7 +59,11 @@ Due to time contraints, I was inspired by a particular design and used a templat
 5. **Gallery Page:** A carousel containing lots of images that I tested out to show some samples of what similar results could be produced.
 
 ### Static Web App
-We had to use static web app in order to deploy our website. Here is a link to my website: https://gentle-meadow-05bb21c1e.azurestaticapps.net/
+We had to use static web app in order to deploy our website. 
+
+Here is a link to my website: https://gentle-meadow-05bb21c1e.azurestaticapps.net/
+
+## Back-End Development
 
 ### Uploading File
 We would need to create two buttons to wear we can pick or upload our chosen image or video file and then creating a submit button in order to send the data to our HTTP trigger. Once it does that, it goes through the face mask detection functions that we created and await for our JSON response to bring back the image or video with whether or not the perseon is wearing a mask.
@@ -73,10 +79,11 @@ I plan to have many improvements and suggestions to my project.
 * In the future, I want to integrate this into a webcam where it’s able to detect LIVE and in real-time of whether or not the person is wearing a mask or not. 
   * However, this might not require Azure Functions so it would stray a different path.
 * I want to use a different algorithm where it's able to more accurately detect faces because sometimes, when someone uploads an image, it doesn't always work and only seems to be working for really high-quality images which is not feasible for real-life images. 
+* I also want to implement an algorithm to where it can detect more than one face instead of only one. 
 
 
 ## Special Thanks
-I want to thank so many people who supported my journey throughout BitCamp. I first want to thank you Ankit, my personal mentor who fought through and through with me in trying to fix errors and help me understand so many concepts. I learned so much from him and really want to say that he's an amazing mentor. I also want to thank you Julia, Emily, and Evelyn for being awesome and kind instructors who kept me organized and supported us so much. Thank you for all the communication and flexibility you gave us! Finally, I want to thank you Chloe Condon, Daniel, and Shreya for providing and teaching us with very well-explained and professional lectures to those who had no clue about Microsoft Azures in the beginning. I was very grateful for every one of you and for this great opportunity! It was a fun experience that I recommend to those who want to learn more about Serverless Microsoft Azure.
+I want to thank so many people who supported my journey throughout BitCamp. I first want to thank you Ankit, my personal mentor who fought through and through with me in trying to fix errors and help me understand so many concepts. I learned so much from him and really want to say that he's an amazing mentor. 11/10! I also want to thank you Julia, Emily, and Evelyn for being awesome and kind instructors who kept me organized and supported us so much. Thank you for all the communication and flexibility you gave us! Finally, I want to thank you Chloe, Daniel, and Shreya for providing and teaching us with very well-explained and professional lectures to those who had no clue about Microsoft Azures in the beginning. I was very grateful for every one of you and for this great opportunity! It was a fun experience that I recommend to those who want to learn more about Serverless Microsoft Azure.
 
 
 
