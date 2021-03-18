@@ -24,10 +24,11 @@ Another reason why I created this project is because like most college students,
   * HTML
   * CSS
   * Javascript
+  * JQuery
   * Bootstrap
+* OpenCV
 * Tensorflow API
   *  Keras
-  *  OpenCV
 
 ## Diagram of Project
 ![Diagram](/blog/diagram.png)
@@ -41,7 +42,16 @@ First, we have to import many different libraries in order for this to work and 
 
 We're using a very basic and simple face detector called the [Haar Cascade](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_objdetect/py_face_detection/py_face_detection.html) due to my first time playing around with face detection.The Haar Cascade algorithm is a machine learning object detection algorithm which is used to identify objects in an image or video. Instead of creating and training the model from scratch, we use the “haarcascade_frontalface_alt2.xml” to detect faces. It's one of the oldest face detector file applications and it detects the face in a matter of few seconds using machine learning. It's not the best in accuracy but it's one of the fastest. Once the face is detected, then we will use this model file from Keras Tensorflow called mask_recog.h5 to detect masks.
 
-Once we have everything set up, we start the code. First, we need to convert the file into a grayscale image or video and then use our Haar Cascade to detect the faces in the image. However, my code can currently only detect one face at a time. It will output an error if there is more than one face or more than one output (ex. detects one person wearing a mask and one not wearing a mask). 
-## Azure Function App
+Once we have everything set up, we start the code. First, we need to convert the file into a grayscale image or video and then use our Haar Cascade to detect the face in the image. Note, my code can currently only detect one face at a time. It will output an error if there is more than one face or more than one output (ex. detects one person wearing a mask and one not wearing a mask). Once the images and faces are identified, you send it out to the mask detector application. We basically pre-processed the image in order to meet the requirements for Haar Cascade application. Now, we send that image to a predictor file through the model_recog.h5 OpenCV file and the rest of the code is basically it creating a frame around the face of the person and outputting a percentage as well. A person wearing a mask will be labeled with a rectangular green frame with a high percentage (most likely between 95%-100%) and a person not wearing a mask will be labeled with a rectangular red frame with a low percentage (< 90%). 
+
+Finally, we just give the program what file we want it to read and we do that by inputting it and then showing it on google colab through the imshow library. The image output  function code is very simple but the video output function is more because it needs to detect each frame and gives us a file output (due to google colab not having a live server to allow us to watch a video). Thus, there would be a generated output file for the video. Thus, our working code is created and now we need to connect it to our front-end for others to use it.
 
 ## Front-End Development
+Due to time contraints, I was inspired by a particular design and used a template and modified it to my own in order to make my website application. Below is 
+
+## Azure Function App
+Now we need to create a Microsoft Azure function to call the API and face detector function in order to read the uploaded file from the user.
+
+
+
+
