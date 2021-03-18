@@ -42,11 +42,89 @@ I did this part of the project in an environment called google colaboratory. It'
 
 First, we have to import many different libraries in order for this to work and the ones we need are shown below.
 
+```
+import cv2
+import os
+from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.models import load_model
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+import numpy as np
+from google.colab.patches import cv2_imshow
+```
+
 We're using a very basic and simple face detector called the [Haar Cascade](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_objdetect/py_face_detection/py_face_detection.html) due to my first time playing around with face detection.The Haar Cascade algorithm is a machine learning object detection algorithm which is used to identify objects in an image or video. Instead of creating and training the model from scratch, we use the “haarcascade_frontalface_alt2.xml” to detect faces. It's one of the oldest face detector file applications and it detects the face in a matter of few seconds using machine learning. It's not the best in accuracy but it's one of the fastest. Once the face is detected, then we will use this model file from Keras Tensorflow called mask_recog.h5 to detect masks.
+
+```
+faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
+model = load_model("mask_recog.h5")
+```
 
 Once we have everything set up, we start the code. First, we need to convert the file into a grayscale image or video and then use our Haar Cascade to detect the face in the image. Note, my code can currently only detect one face at a time. It will output an error if there is more than one face or more than one output (ex. detects one person wearing a mask and one not wearing a mask). Once the images and faces are identified, you send it out to the mask detector application. We basically pre-processed the image in order to meet the requirements for Haar Cascade application. Now, we send that image to a predictor file through the model_recog.h5 OpenCV file and the rest of the code is basically it creating a frame around the face of the person and outputting a percentage as well. A person wearing a mask will be labeled with a rectangular green frame with a high percentage (most likely between 95%-100%) and a person not wearing a mask will be labeled with a rectangular red frame with a low percentage (< 90%). 
 
+```
+#converting the file into a grayscale image or video
+def face_mask_detector(frame):
+  frame = cv2.imread(fileName) #google colab library that will be later commented out
+  gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+  faces = faceCascade.detectMultiScale(gray,
+                                        scaleFactor=1.1,
+                                        minNeighbors=5,
+                                        minSize=(60, 60),
+                                        flags=cv2.CASCADE_SCALE_IMAGE)
+  faces_list=[]
+  preds=[]
+  
+  #mask-detector function
+  #creation and design of the frame output
+  for (x, y, w, h) in faces:
+      face_frame = frame[y:y+h,x:x+w]
+      face_frame = cv2.cvtColor(face_frame, cv2.COLOR_BGR2RGB)
+      face_frame = cv2.resize(face_frame, (224, 224))
+      face_frame = img_to_array(face_frame)
+      face_frame = np.expand_dims(face_frame, axis=0)
+      face_frame =  preprocess_input(face_frame)
+      faces_list.append(face_frame)
+      if len(faces_list)>0:
+          preds = model.predict(faces_list)
+      for pred in preds:
+          (mask, withoutMask) = pred
+      label = "Mask" if mask > withoutMask else "No Mask"
+      color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
+      label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
+      cv2.putText(frame, label, (x, y- 10),
+                  cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
+
+      cv2.rectangle(frame, (x, y), (x + w, y + h),color, 3)
+      cv2_imshow(frame) #google colab library that will be later commented out
+  return frame
+```
+
 Finally, we just give the program what file we want it to read and we do that by inputting it and then showing it on google colab through the imshow library. The image output  function code is very simple but the video output function is more because it needs to detect each frame and gives us a file output (due to google colab not having a live server to allow us to watch a video). Thus, there would be a generated output file for the video. Thus, our working code is created and now we need to connect it to our front-end for others to use it.
+
+```
+#image output
+input_image = cv2.imread("image.jpg")
+output = face_mask_detector(input_image)
+cv2_imshow(output)
+```
+
+```
+#video output
+cap = cv2.VideoCapture('video13.mp4')
+ret, frame = cap.read()
+frame_height, frame_width, _ = frame.shape
+out = cv2.VideoWriter('output.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
+print("Processing Video...")
+while cap.isOpened():
+  ret, frame = cap.read()
+  if not ret:
+    out.release()
+    break
+  output = face_mask_detector(frame)
+  out.write(output)
+out.release()
+print("Done processing video")
+```
 
 ## Front-End Development
 Due to time contraints, I was inspired by a particular design and used a template and modified it to my own in order to make my website application. Below is an overview of what my overall website looks like. I used HTML, CSS, Javascript, JQuery, and Bootstrap to create and modify my website. 
