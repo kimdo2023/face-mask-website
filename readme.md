@@ -47,10 +47,27 @@ Once we have everything set up, we start the code. First, we need to convert the
 Finally, we just give the program what file we want it to read and we do that by inputting it and then showing it on google colab through the imshow library. The image output  function code is very simple but the video output function is more because it needs to detect each frame and gives us a file output (due to google colab not having a live server to allow us to watch a video). Thus, there would be a generated output file for the video. Thus, our working code is created and now we need to connect it to our front-end for others to use it.
 
 ## Front-End Development
-Due to time contraints, I was inspired by a particular design and used a template and modified it to my own in order to make my website application. Below is 
+Due to time contraints, I was inspired by a particular design and used a template and modified it to my own in order to make my website application. Below is an overview of what my overall website looks like. I used HTML, CSS, Javascript, JQuery, and Bootstrap to create and modify my website. 
+
+### Layout of Website
+1. **Homepage:** Main page that demonstrates my title, logo, navigation bar, and an iconic carousel for important reminders and relevant information.
+2. **Demo Page:** To demonstrate the easy and simple steps of how to upload an image or video to create an output.
+3. **Upload Page:** The area where the user will upload their image and video and the output will display back with a frame and percentage that shows if the person is wearing a mask or not.
+4. **About Page:** The project description, information, and future discussion are posted there.
+5. **Gallery Page:** A carousel containing lots of images that I tested out to show some samples of what similar results could be produced.
+
+### Static Web App
+We had to use static web app in order to deploy our website. Here is a link to my website: https://gentle-meadow-05bb21c1e.azurestaticapps.net/
+
+### Uploading File
+We would need to create two buttons to wear we can pick or upload our chosen image or video file and then creating a submit button in order to send the data to our HTTP trigger. Once it does that, it goes through the face mask detection functions that we created and await for our JSON response to bring back the image or video with whether or not the perseon is wearing a mask.
 
 ## Azure Function App
-Now we need to create a Microsoft Azure function to call the API and face detector function in order to read the uploaded file from the user.
+Now we need to create a Microsoft Azure function to call the API, face detector function, and front-end image in order to read the uploaded file from the user. First, I went on my portal and created a entirely new function. Below are the settings I used but they can vary for others. 
+
+Then, after creating the function, I went on Visual Studios and installed the necessary extensions (such as Azure Functions) and uploaded the files I wanted to put in my function. Then I deployed it from VS code to the portal and thus, it successfully connected. There were definetely errors in terms of installing the correct libraries and such but I was able to fix most of it. After it was done connecting, I used Postman to test it out as well and it worked! Now, it became the matter of trying to figure out how connect it to my front-end as well. 
+
+##
 
 
 
