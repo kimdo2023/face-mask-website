@@ -148,7 +148,7 @@ Here is a link to my website: https://gentle-meadow-05bb21c1e.azurestaticapps.ne
 ![Diagram2](/blog/ai.png)
 
 ### Uploading File
-We would need to create two buttons to wear we can pick or upload our chosen image or video file and then creating a submit button in order to send the data to our HTTP trigger. Once it does that, it goes through the face mask detection functions that we created and await for our JSON response to bring back the image or video with whether or not the perseon is wearing a mask.
+We would need to create two buttons to wear we can pick or upload our chosen image or video file and then creating a submit button in order to send the data to our HTTP trigger. Once it does that, it goes through the face mask detection functions that we created and await for our JSON response to bring back the image or video with whether or not the person is wearing a mask.
 
 ### Azure Function App
 Now we need to create a Microsoft Azure function to call the API, face detector function, and front-end image in order to read the uploaded file from the user. First, I went on my portal and created a entirely new function. Below are the settings I used but they can vary for others. 
@@ -159,6 +159,10 @@ Then, after creating the function, I went on Visual Studios and installed the ne
 
 ![Postman](/blog/postman.png)
 
+## Results
+The results should be similiar to what you see below. The image on the left presents a person not wearing a mask while the person on the right presents a person wearing a mask.
+![No Mask](/blog/nomask.png)
+![Mask](/blog/mask.png)
 
 ## Future Plans
 I plan to have many improvements and suggestions to my project. 
