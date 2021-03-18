@@ -127,7 +127,9 @@ print("Done processing video")
 ```
 
 ## Front-End Development
-Due to time contraints, I was inspired by a particular design and used a template and modified it to my own in order to make my website application. Below is an overview of what my overall website looks like. I used HTML, CSS, Javascript, JQuery, and Bootstrap to create and modify my website. 
+Due to time contraints, I was inspired by a particular design and used a template and modified it to my own in order to make my website application. Below is the homepage of my website. I used HTML, CSS, Javascript, JQuery, and Bootstrap to create and modify my website. 
+
+![Homepage](/blog/homepage.png)
 
 ### Layout of Website
 1. **Homepage:** Main page that demonstrates my title, logo, navigation bar, and an iconic carousel for important reminders and relevant information.
@@ -143,13 +145,19 @@ Here is a link to my website: https://gentle-meadow-05bb21c1e.azurestaticapps.ne
 
 ## Back-End Development
 
+![Diagram2](/blog/ai.png)
+
 ### Uploading File
 We would need to create two buttons to wear we can pick or upload our chosen image or video file and then creating a submit button in order to send the data to our HTTP trigger. Once it does that, it goes through the face mask detection functions that we created and await for our JSON response to bring back the image or video with whether or not the perseon is wearing a mask.
 
-## Azure Function App
+### Azure Function App
 Now we need to create a Microsoft Azure function to call the API, face detector function, and front-end image in order to read the uploaded file from the user. First, I went on my portal and created a entirely new function. Below are the settings I used but they can vary for others. 
 
+![Function](/blog/function.png)
+
 Then, after creating the function, I went on Visual Studios and installed the necessary extensions (such as Azure Functions) and uploaded the files I wanted to put in my function. Then I deployed it from VS code to the portal and thus, it successfully connected. There were definetely errors in terms of installing the correct libraries and such but I was able to fix most of it. After it was done connecting, I used Postman to test it out as well and it worked! Now, it became the matter of trying to figure out how connect it to my front-end as well. 
+
+![Postman](/blog/postman.png)
 
 
 ## Future Plans
