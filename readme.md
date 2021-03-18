@@ -67,7 +67,16 @@ Now we need to create a Microsoft Azure function to call the API, face detector 
 
 Then, after creating the function, I went on Visual Studios and installed the necessary extensions (such as Azure Functions) and uploaded the files I wanted to put in my function. Then I deployed it from VS code to the portal and thus, it successfully connected. There were definetely errors in terms of installing the correct libraries and such but I was able to fix most of it. After it was done connecting, I used Postman to test it out as well and it worked! Now, it became the matter of trying to figure out how connect it to my front-end as well. 
 
-##
+
+## Future Plans
+I plan to have many improvements and suggestions to my project. 
+* In the future, I want to integrate this into a webcam where it’s able to detect LIVE and in real-time of whether or not the person is wearing a mask or not. 
+  * However, this might not require Azure Functions so it would stray a different path.
+* I want to use a different algorithm where it's able to more accurately detect faces because sometimes, when someone uploads an image, it doesn't always work and only seems to be working for really high-quality images which is not feasible for real-life images. 
+
+
+## Special Thanks
+I want to thank so many people who supported my journey throughout BitCamp. I first want to thank you Ankit, my personal mentor who fought through and through with me in trying to fix errors and help me understand so many concepts. I learned so much from him and really want to say that he's an amazing mentor. I also want to thank you Julia, Emily, and Evelyn for being awesome and kind instructors who kept me organized and supported us so much. Thank you for all the communication and flexibility you gave us! Finally, I want to thank you Chloe Condon, Daniel, and Shreya for providing and teaching us with very well-explained and professional lectures to those who had no clue about Microsoft Azures in the beginning. I was very grateful for every one of you and for this great opportunity! It was a fun experience that I recommend to those who want to learn more about Serverless Microsoft Azure.
 
 
 
