@@ -161,6 +161,7 @@ Then, after creating the function, I went on Visual Studios and installed the ne
 
 ## Results
 The results should be similiar to what you see below. The image on the left presents a person not wearing a mask while the person on the right presents a person wearing a mask.
+
 ![No Mask and Mask](/blog/nomaskandmask.png)
 
 
