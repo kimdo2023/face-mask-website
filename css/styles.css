@@ -1337,3 +1337,10 @@ a:hover.back-to-top {
 .upload-btn-wrapper i {
 	padding-right: 5px;
 }
+#converted-image1 {
+	margin-right: auto; 
+	margin-left: auto; 
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 20px;
+}
