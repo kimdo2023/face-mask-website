@@ -269,10 +269,21 @@
                     <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
                         <div class="container">
                             <div class="row">  
-								<div class="upload-btn-wrapper">
-								  <button class="btn"><i class="far fa-file-image"></i>UPLOAD FILE</button>
-								  <input type="file" name="myfile" />
-								</div>                              
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn"><i class="far fa-file-image"></i>UPLOAD FILE</button>
+                                    <input type="file" name="myfile" id="picture" onchange="showImage(event)"/>
+                                </div>
+                            </div> <!-- end of row -->
+                            <div id="converted-image1">  
+                                <div class="image">
+                                    <!-- image tag that is filled by the javascript as needed -->
+                                    <img id="converted-image"></img>
+                                </div>                            
+                            </div> <!-- end of row -->
+                            <div class="row">  
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn" id="submit-image">DETECT MASK</button>
+                                </div>                            
                             </div> <!-- end of row -->
                         </div> <!-- end of container -->
                     </div> <!-- end of tab-pane -->
