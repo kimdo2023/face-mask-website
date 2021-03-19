@@ -165,7 +165,7 @@ The results should be similiar to what you see below. The image on the left pres
 ![No Mask and Mask](/blog/nomaskandmask.png)
 
 ## Demo
-![Short Demo](/blog/short_demo.gif)
+![Short Demo](https://media.giphy.com/media/40SERPBtSSyg3ULGS6/giphy.gif)
 
 ## Future Plans
 I plan to have many improvements and suggestions to my project. 
