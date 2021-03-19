@@ -164,6 +164,8 @@ The results should be similiar to what you see below. The image on the left pres
 
 ![No Mask and Mask](/blog/nomaskandmask.png)
 
+## Demo
+![Short Demo](/blog/short_demo.gif)
 
 ## Future Plans
 I plan to have many improvements and suggestions to my project. 
