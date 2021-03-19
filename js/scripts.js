@@ -9,16 +9,58 @@
     "use strict"; 
 	
 	/* Preloader */
-	$(window).on('load', function() {
-		var preloaderFadeOutTime = 500;
-		function hidePreloader() {
-			var preloader = $('.spinner-wrapper');
-			setTimeout(function() {
-				preloader.fadeOut(preloaderFadeOutTime);
-			}, 500);
-		}
-		hidePreloader();
-	});
+    //runs when you load file
+    $(window).on('load', function() {
+        var preloaderFadeOutTime = 500;
+        function hidePreloader() {
+            var preloader = $('.spinner-wrapper');
+            setTimeout(function() {
+                preloader.fadeOut(preloaderFadeOutTime);
+            }, 500);
+        }
+        hidePreloader();
+
+        // This makes sure anytime the image is uploaded, it's shown in the webpage
+        document.getElementById("picture").onchange = function()
+        {
+            var imageElement = document.getElementById('converted-image');
+            var file = document.getElementById("picture").files[0];
+            imageElement.src = URL.createObjectURL(file);
+        }
+        
+        document.getElementById("submit-image").onclick = function ()
+        {
+            var uploadedPicture = document.getElementById("picture").files[0]
+
+            // Call the HttpTrigger with the image uploaded by the user
+            fetch('https://bitprojectfacemask.azurewebsites.net/api/detectmask?code=OqhaY5KnypaU6snyMkPgSfQ5XBoYdDRUwOznM6YTq/2zXAaLyP1XeQ==', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'image/jpeg',
+            },
+            body: uploadedPicture,
+            })
+            .then(response => {
+                // Read the full response from the stream
+                return response.arrayBuffer();
+            })
+            .then(response => {
+
+                // Convert ArrayBuffer to base64
+                var b64Response = btoa(
+                    new Uint8Array(response)
+                      .reduce((data, byte) => data + String.fromCharCode(byte), '')
+                  );
+                
+                // Get the image element and change the source to be this new image.
+                var outputImg = document.getElementById('converted-image');
+                outputImg.src = 'data:image/jpeg;base64,'+b64Response;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    });
 
 	
 	/* Navbar Scripts */
